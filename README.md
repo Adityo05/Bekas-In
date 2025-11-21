@@ -68,24 +68,6 @@ git commit -m "Update README and project description"
 git push
 ```
 
-Deployment (GitHub Pages)
--------------------------
-- Buka Settings repo → Pages → pilih branch `main` dan folder `/ (root)` → Save.
-- Tunggu beberapa menit, lalu situs akan live di `https://<username>.github.io/bekasin/` (pastikan `index.html` tersedia — di repo ini gunakan `home.html` sebagai halaman depan; set `home.html` rename ke `index.html` atau buat `index.html` yang mengarahkan ke `home.html`).
-
-Lisensi
--------
-Disarankan menggunakan lisensi MIT jika ingin mempublikasikan sebagai open-source. Tambahkan file `LICENSE` jika setuju.
-
-Kontribusi
-----------
-- Tambahkan issue untuk bug/fitur baru.
-- Buat pull request ke branch `main` dan jelaskan perubahan.
-
 Tentang
 -------
 BEKAS-IN dibuat untuk materi Web Desain (tugas semester). Tidak ada backend — semua data tersimpan pada LocalStorage atau JSON statis.
-
-Kontak
-------
-Jika ingin menghubungi pengembang: bekasin@gmail.com
