@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>BekasIn - Pesanan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+    }
+
+    header {
+      background-color: #0B713F;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .logo-text .main-text {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .logo-text .sub-text {
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .search-form {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 8px 0;
+    }
+
+    .search-form input[type="text"] {
+      padding: 8px;
+      border-radius: 6px;
+      border: none;
+      width: 220px;
+      max-width: 100%;
+    }
+
+    .search-form button {
+      padding: 8px 12px;
+      border: none;
+      background-color: #07532f;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .search-form button:hover {
+      background-color: #064426;
+    }
+
+    .icon-buttons {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .icon-buttons a img {
+      width: 28px;
+      height: 28px;
+      filter: brightness(0) invert(1);
+      transition: transform 0.3s ease;
+    }
+
+    .icon-buttons a:hover img {
+      transform: scale(1.1);
+    }
+
+    nav {
+      background-color: white;
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #2e2e2e;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    nav a:hover {
+      background-color: #d4d4d4;
+    }
+
+    .pesanan-container {
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pesanan-card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 20px;
+      width: 100%;
+      max-width: 800px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      animation: slideUp 0.5s ease forwards;
+      opacity: 0;
+    }
+
+    .pesanan-kiri {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .gambar-produk img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .info-produk {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .info-produk .nama {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .info-produk span {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .pesanan-kanan {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .total-belanja {
+      font-weight: bold;
+      font-size: 14px;
+      text-align: right;
+    }
+
+    .status {
+      background-color: #00c292;
+      color: white;
+      padding: 6px 14px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: default;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Mobile */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .icon-buttons {
+        align-self: flex-end;
+      }
+
+      .pesanan-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .pesanan-kanan {
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      .search-form input {
+        width: 60%;
+      }
+
+      .pesanan-container {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-text">
+      <div class="main-text">BEKAS-IN</div>
+      <div class="sub-text">Cari bekas rasa baru? <strong>BEKAS-IN</strong> aja!</div>
+    </div>
+    <form action="#" method="GET" class="search-form">
+      <input type="text" name="q" placeholder="Cari barang bekas...">
+      <button type="submit">Cari</button>
+    </form>
+    <div class="icon-buttons">
+      <a href="keranjang.html"><img src="assets/keranjang.png" alt="Keranjang"></a>
+      <a href="akun.html"><img src="assets/akunn.png" alt="Akun"></a>
+    </div>
+  </header>
+
+  <nav>
+    <a href="home.html">Beranda</a>
+    <a href="pesanan.html">Pesanan</a>
+    <a href="jual.html">Jual Barang</a>
+    <a href="tentang_kami.html">Tentang Kami</a>
+    <a href="kontak.html">Kontak Kami</a>
+  </nav>
+
+  <section class="pesanan-container" id="pesanan-container"></section>
+
+  <script>
+    const userLogin = localStorage.getItem('userLogin');
+    const keyPesanan = `pesanan_${userLogin}`;
+    const daftarPesanan = JSON.parse(localStorage.getItem(keyPesanan)) || [];
+
+    const container = document.getElementById("pesanan-container");
+    container.innerHTML = "";
+
+    if (daftarPesanan.length == 0) {
+      container.innerHTML = "<p>Tidak ada pesanan.</p>";
+    } else {
+      daftarPesanan.forEach((pesanan, index) => {
+        const card = document.createElement("div");
+        card.className = "pesanan-card";
+        card.style.animationDelay = `${index * 100}ms`;
+        card.innerHTML = `
+          <div class="pesanan-kiri">
+            <div class="gambar-produk">
+              <img src="${pesanan.gambar}" alt="${pesanan.judul}">
+            </div>
+            <div class="info-produk">
+              <div class="nama">${pesanan.judul}</div>
+            </div>
+          </div>
+          <div class="pesanan-kanan">
+            <div class="total-belanja">
+              Total Belanja<br><strong>${pesanan.harga}</strong>
+            </div>
+            <button class="status">Dikirim</button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+  </script>
+
+</body>
+</html>

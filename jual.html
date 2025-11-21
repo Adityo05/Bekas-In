@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Jual Barang - BekasIn</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #0b713e;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+    }
+
+    .header a {
+      color: white;
+      text-decoration: none;
+      font-size: 24px;
+      margin-right: 10px;
+    }
+
+    .header h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .container {
+      display: flex;
+      padding: 20px;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .left {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .product-image {
+      background-color: #ddd;
+      height: 300px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+
+    .button-upload {
+      background-color: #0b713e;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .button-upload:hover {
+      background-color: #095e34;
+    }
+
+    .right {
+      flex: 2;
+      min-width: 280px;
+    }
+
+    .right h3 {
+      margin-top: 0;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    .form-group textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    .button-submit {
+      background-color: #0b713e;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .button-submit:hover {
+      background-color: #095e34;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 16px;
+      }
+
+      .left,
+      .right {
+        width: 100%;
+      }
+
+      .product-image {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <a href="home.html">&larr;</a>
+    <h2>Jual Barang</h2>
+  </div>
+
+  <div class="container">
+    <div class="left">
+      <div class="product-image">MASUKKAN<br>GAMBAR PRODUK</div>
+      <button class="button-upload">Upload Gambar</button>
+    </div>
+
+    <div class="right">
+      <h3>Formulir Jual Barang</h3>
+
+      <form action="#" method="POST">
+        <div class="form-group">
+          <label for="judul">Judul Produk</label>
+          <input type="text" id="judul" name="judul" placeholder="Contoh: Sepatu Bekas Adidas" required>
+        </div>
+
+        <div class="form-group">
+          <label for="harga">Harga</label>
+          <input type="text" id="harga" name="harga" placeholder="Contoh: Rp 150.000" required>
+        </div>
+
+        <div class="form-group">
+          <label for="kondisi">Kondisi</label>
+          <select id="kondisi" name="kondisi" required>
+            <option value="">-- Pilih Kondisi Produk --</option>
+            <option value="Mulus">Mulus</option>
+            <option value="Lecet Pemakaian">Lecet Pemakaian</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="deskripsi">Deskripsi Produk</label>
+          <textarea id="deskripsi" name="deskripsi" placeholder="Tuliskan deskripsi produk secara detail..." required></textarea>
+        </div>
+
+        <button type="submit" class="button-submit">Simpan Barang</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+[
+    {
+        "id": 1,
+        "judul": "Laptop Asus",
+        "harga": "Rp 4.000.000",
+        "kondisi": "Lecet Pemakaian",
+        "deskripsi": "Laptop Asus second, kelengkapan: kabel cas dan moouse",
+        "gambar": "assets/asus.jpeg",
+        "link": "menu_beli_barang.html"
+    },
+    {
+        "id": 2,
+        "judul": "Sepeda Polygon",
+        "harga": "Rp 3.500.000",
+        "kondisi": "Lecet Pemakaian",
+        "deskripsi": "Pemakaian baru 3 minggu, lecet sedikit dibagian body sepeda",
+        "gambar": "assets/polygon.jpeg",
+        "link": "menu_beli_barang.html"
+    },
+    {
+        "id": 3,
+        "judul": "Kulkas 2 Pintu",
+        "harga": "Rp 2.500.000",
+        "kondisi": "Mulus",
+        "deskripsi": "Barang mulus, tidak ada kendala selama pemakaian",
+        "gambar": "assets/kulkas.jpeg",
+        "link": "menu_beli_barang.html"
+    },
+        {
+        "id": 4,
+        "judul": "Rice Cooker",
+        "harga": "Rp 300.000",
+        "kondisi": "Mulus",
+        "deskripsi": "Rice Cooker Miyako, tidak ada kendala selama pemakaian",
+        "gambar": "assets/ricecooker.jpeg",
+        "link": "menu_beli_barang.html"
+    },
+        {
+        "id": 5,
+        "judul": "Setrika Philips",
+        "harga": "Rp 100.000",
+        "kondisi": "Mulus",
+        "deskripsi": "Kondisi masih bagus dan masih panas",
+        "gambar": "assets/setrika.jpg",
+        "link": "menu_beli_barang.html"
+    },
+        {
+        "id": 6,
+        "judul": "TV LED Polytron 32 Inch PLD32V1753",
+        "harga": "Rp 1.110.000",
+        "kondisi": "Baru",
+        "deskripsi": "Barang dalam kondisi baru, pemakaian baru 2 minggu. Kelengkapan: remote TV, BOX, dan buku petunjuk",
+        "gambar": "assets/tv.jpeg",
+        "link": "menu_beli_barang.html"
+    },
+        {
+        "id": 7,
+        "judul": "Helm KYT Full Face",
+        "harga": "Rp 350.000",
+        "kondisi": "Lecet Pemakaian",
+        "deskripsi": "Helm KYT Full Face, lecet pemakaian di bagian kaca helm",
+        "gambar": "assets/helm.jpeg",
+        "link": "menu_beli_barang.html"
+    },
+        {
+        "id": 8,
+        "judul": "Speaker Bluetooth JBL",
+        "harga": "Rp 250.000",
+        "kondisi": "Mulus",
+        "deskripsi": "Barang mulus, suara masih nendang dan baterai masih awet",
+        "gambar": "assets/speaker.jpeg",
+        "link": "menu_beli_barang.html"
+    },
+        {
+        "id": 9,
+        "judul": "AC Sharp 1 PK",
+        "harga": "Rp 1.500.000",
+        "kondisi": "Mulus",
+        "deskripsi": "Kondisi barang masih bagus, sudah isi freon dan dinginnya masih normal",
+        "gambar": "assets/ac.jpeg",
+        "link": "menu_beli_barang.html"
+    },
+        {
+        "id": 10,
+        "judul": "Jam dinding antik",
+        "harga": "Rp 150.000",
+        "kondisi": "Mulus",
+        "deskripsi": "Barang mulus, tidak ada kendala selama pemakaian",
+        "gambar": "assets/jam.jpeg",
+        "link": "menu_beli_barang.html"
+    },
+        {
+        "id": 11,
+        "judul": "HP Samsung Galaxy J2 Prime Second",
+        "harga": "Rp 550.000",
+        "kondisi": "Lecet Pemakaian",
+        "deskripsi": "Layar sedikit lecet, barang berfungsi dengan normal",
+        "gambar": "assets/hp.jpg",
+        "link": "menu_beli_barang.html"
+    }
+]

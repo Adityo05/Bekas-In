@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>BekasIn - Beranda</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+    }
+
+    header {
+      background-color: #0B713F;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      z-index: 10;
+      position: relative;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1.2;
+    }
+
+    .logo-text .main-text {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .logo-text .sub-text {
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .search-form {
+      display: flex;
+      gap: 8px;
+      margin: 8px 0;
+      flex-wrap: wrap;
+    }
+
+    .search-form input[type="text"] {
+      padding: 8px;
+      border-radius: 6px;
+      border: none;
+      width: 220px;
+      max-width: 100%;
+    }
+
+    .search-form button {
+      padding: 8px 12px;
+      border: none;
+      background-color: #07532f;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .search-form button:hover {
+      background-color: #064626;
+    }
+
+    .icon-buttons {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .icon-buttons a img {
+      width: 28px;
+      height: 28px;
+      filter: brightness(0) invert(1);
+      transition: transform 0.3s ease;
+    }
+
+    .icon-buttons a:hover img {
+      transform: scale(1.1);
+    }
+
+    nav {
+      background-color: white;
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #2e2e2e;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    nav a:hover {
+      background-color: #d4d4d4;
+    }
+
+    .hero-carousel {
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      position: relative;
+      background-color: #ddd;
+    }
+
+    .carousel-images {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .carousel-images img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .carousel-images img.active {
+      opacity: 1;
+    }
+
+    .btn-jual {
+      background-color: #0a6c3d;
+      color: white;
+      padding: 12px 20px;
+      text-align: center;
+      border-radius: 8px;
+      text-decoration: none;
+      margin: 20px auto;
+      display: block;
+      width: fit-content;
+      font-weight: bold;
+    }
+
+    .content {
+      padding: 0 24px 24px 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .item-card {
+      background-color: white;
+      padding: 12px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: slideUp 0.5s ease forwards;
+      opacity: 0;
+    }
+
+    .item-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .item-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .item-title {
+      margin-top: 8px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .item-title a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .item-price {
+      color: #0a6c3d;
+      font-weight: bold;
+    }
+
+    .selengkapnya {
+      font-weight: bold;
+      font-size: 15px;
+      padding: 12px 24px;
+    }
+
+    .footer {
+      background-color: #d4d4d4;
+      margin-top: 40px;
+      font-size: 14px;
+      color: black;
+    }
+
+    @keyframes slideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .search-form {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .search-form input {
+        width: 60%;
+      }
+
+      .icon-buttons {
+        align-self: flex-end;
+      }
+
+      .hero-carousel {
+        height: 250px;
+      }
+
+      .item-card img {
+        height: 140px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .item-title {
+        font-size: 14px;
+      }
+
+      .item-price {
+        font-size: 14px;
+      }
+
+      .selengkapnya {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-text">
+      <div class="main-text">BEKAS-IN</div>
+      <div class="sub-text">Cari bekas rasa baru? <strong>BEKAS-IN</strong> aja!</div>
+    </div>
+    <form action="#" method="GET" class="search-form">
+      <input type="text" name="q" placeholder="Cari barang bekas...">
+      <button type="submit">Cari</button>
+    </form>
+    <div class="icon-buttons">
+      <a href="keranjang.html"><img src="assets/keranjang.png" alt="Keranjang"></a>
+      <a href="akun.html"><img src="assets/akunn.png" alt="Akun"></a>
+    </div>
+  </header>
+
+  <nav>
+    <a href="home.html">Beranda</a>
+    <a href="pesanan.html">Pesanan</a>
+    <a href="jual.html">Jual Barang</a>
+    <a href="tentang_kami.html">Tentang Kami</a>
+    <a href="kontak.html">Kontak Kami</a>
+  </nav>
+
+  <div class="hero-carousel">
+    <div class="carousel-images">
+      <img src="assets/carousel.png" alt="Slide 1" class="active">
+      <img src="assets/carousel2.png" alt="Slide 2">
+    </div>
+  </div>
+
+  <p class="selengkapnya">Lihat selengkapnya</p>
+
+  <section class="content"></section>
+
+  <footer class="footer">
+    <div style="padding: 24px; text-align: center; font-size: 14px; color: #333;">
+    <p><strong>BEKAS-IN</strong> &copy; 2025 - Semua hak cipta dilindungi.</p>
+    <p>
+      Alamat: Jl. Ahmad Yani, Pontianak, Kalimantan Barat<br>
+      Email: <a href="mailto:support@bekasin.com" style="color: #0a6c3d; text-decoration: none;">bekasin@gmail.com</a> |
+      Telp: 0895-6358-9989
+    </p>
+    <p>Temukan kami di:
+      <a href="#" style="color: #0a6c3d; text-decoration: none; font-weight: bold;">Instagram</a> |
+      <a href="#" style="color: #0a6c3d; text-decoration: none; font-weight: bold;">Facebook</a> |
+      <a href="#" style="color: #0a6c3d; text-decoration: none; font-weight: bold;">Twitter</a>
+    </p>
+  </div>
+  </footer>
+
+  <script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(".carousel-images img");
+
+  setInterval(() => {
+    slides[currentSlide].classList.remove("active");
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add("active");
+  }, 4000);
+
+    fetch('barang.json')
+    .then(response => response.json())
+    .then(data => {
+      const content = document.querySelector('.content');
+      content.innerHTML = "";
+
+      data.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = "item-card";
+        card.style.animationDelay = `${index * 100}ms`; // Staggered animation
+        card.innerHTML = `
+          <a href="menu_beli_barang.html?id=${item.id}" style="text-decoration:none; color:inherit;">
+            <img src="${item.gambar}" alt="${item.judul}">
+            <div class="item-title">${item.judul}</div>
+            <div class="item-price">${item.harga}</div>
+          </a>
+        `;
+        content.appendChild(card);
+      });
+    })
+    .catch(error => {
+      console.error("Gagal memuat data:", error);
+    });
+  </script>
+
+</body>
+</html>

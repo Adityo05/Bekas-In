@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kontak Kami</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Semua style-mu tetap sama */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+    }
+
+    header {
+      background-color: #0B713F;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .logo-text .main-text {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .logo-text .sub-text {
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .search-form {
+      display: flex;
+      gap: 8px;
+      margin: 8px 0;
+    }
+
+    .search-form input[type="text"] {
+      padding: 8px;
+      border-radius: 6px;
+      border: none;
+      width: 220px;
+    }
+
+    .search-form button {
+      padding: 8px 12px;
+      border: none;
+      background-color: #07532f;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .icon-buttons {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .icon-buttons a img {
+      width: 28px;
+      height: 28px;
+      filter: brightness(0) invert(1);
+      transition: transform 0.2s;
+    }
+
+    .icon-buttons a:hover img {
+      transform: scale(1.1);
+    }
+
+    nav {
+      background-color: white;
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #2e2e2e;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    nav a:hover {
+      background-color: #d4d4d4;
+    }
+
+    .contact-container {
+      display: flex;
+      justify-content: center;
+      margin: 40px 0;
+    }
+
+    .contact-box {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      width: 80%;
+      max-width: 1000px;
+    }
+
+    .contact-info {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-info-box {
+      background-color: #e0e0e0;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .contact-info-box h2 {
+      margin-top: 0;
+      font-size: 22px;
+    }
+
+    .contact-info-box p {
+      font-size: 14px;
+      margin: 8px 0 0;
+    }
+
+    .form-wrapper {
+      background: #e0e0e0;
+      padding: 20px;
+      border-radius: 10px;
+      flex: 2;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-form label {
+      font-weight: 500;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .contact-form button {
+      width: 70px;
+      padding: 8px;
+      background-color: #0a6c3d;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .contact-box {
+        flex-direction: column;
+      }
+
+      .contact-info {
+        justify-content: flex-start;
+        margin-bottom: 20px;
+      }
+
+      .contact-info-box {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-text">
+      <div class="main-text">BEKAS-IN</div>
+      <div class="sub-text">Cari bekas rasa baru? <strong>BEKAS-IN</strong> aja!</div>
+    </div>
+    <div class="search-form">
+      <input type="text" placeholder="Cari barang bekas...">
+      <button type="submit">Cari</button>
+    </div>
+    <div class="icon-buttons">
+      <a href="keranjang.html"><img src="assets/keranjang.png" alt="Keranjang"></a>
+      <a href="akun.html"><img src="assets/akunn.png" alt="Akun"></a>
+    </div>
+  </header>
+
+  <!-- Navigasi -->
+  <nav>
+    <a href="home.html">Beranda</a>
+    <a href="pesanan.html">Pesanan</a>
+    <a href="jual.html">Jual Barang</a>
+    <a href="tentang_kami.html">Tentang Kami</a>
+    <a href="kontak.html">Kontak Kami</a>
+  </nav>
+
+  <!-- Konten Kontak Kami -->
+  <div class="contact-container">
+    <div class="contact-box">
+      
+      <!-- Kiri -->
+      <div class="contact-info">
+        <div class="contact-info-box">
+          <h2>Kontak Kami</h2>
+          <p>Silahkan tinggalkan pesan anda,<br> pada kolom yang tersedia</p>
+        </div>
+      </div>
+
+      <!-- Kanan -->
+      <div class="form-wrapper">
+        <form class="contact-form" onsubmit="return kirimPesan();">
+          <label for="nama">Nama Anda:</label>
+          <input type="text" id="nama" name="nama" placeholder="Masukkan Nama" required>
+
+          <label for="email">E-mail Anda:</label>
+          <input type="email" id="email" name="email" placeholder="Masukkan Email" required>
+
+          <label for="pesan">Pesan Anda:</label>
+          <textarea id="pesan" name="pesan" rows="5" required></textarea>
+
+          <button type="submit">Kirim</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script popup -->
+  <script>
+    function kirimPesan() {
+      alert("Pesan kritik & saran anda sudah terkirim.");
+      return false; // Mencegah form reload / pindah halaman
+    }
+  </script>
+
+</body>
+</html>

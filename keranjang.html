@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Keranjang Saya</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+    }
+
+    header {
+      background-color: #0B713F;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .logo-text .main-text {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .logo-text .sub-text {
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .icon-buttons {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .icon-buttons a img {
+      width: 28px;
+      height: 28px;
+      filter: brightness(0) invert(1);
+    }
+
+    nav {
+      background-color: white;
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #2e2e2e;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+    }
+
+    nav a:hover {
+      background-color: #d4d4d4;
+    }
+
+    .keranjang-container {
+      padding: 24px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    thead th {
+      background-color: #eaeaea;
+      padding: 12px;
+      text-align: left;
+    }
+
+    tbody td {
+      padding: 16px 12px;
+      border-bottom: 1px solid #ddd;
+      vertical-align: middle;
+    }
+
+    .product-image {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .hapus-btn {
+      background-color: #e53935;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .hapus-btn:hover {
+      background-color: #c62828;
+    }
+
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tbody td {
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+        border: none;
+        border-bottom: 1px solid #ddd;
+      }
+
+      tbody td::before {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+        content: attr(data-label);
+      }
+
+      .product-image {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-text">
+      <div class="main-text">BEKAS-IN</div>
+      <div class="sub-text">Cari bekas rasa baru? <strong>BEKAS-IN</strong> aja!</div>
+    </div>
+    <div class="icon-buttons">
+      <a href="keranjang.html"><img src="assets/keranjang.png" alt="Keranjang"></a>
+      <a href="akun.html"><img src="assets/akunn.png" alt="Akun"></a>
+    </div>
+  </header>
+
+  <!-- Navigasi -->
+  <nav>
+    <a href="home.html">Beranda</a>
+    <a href="pesanan.html">Pesanan</a>
+    <a href="jual.html">Jual Barang</a>
+    <a href="tentang_kami.html">Tentang Kami</a>
+    <a href="kontak.html">Kontak Kami</a>
+  </nav>
+
+  <!-- Konten -->
+  <section class="keranjang-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Produk</th>
+          <th>Harga</th>
+          <th>Hapus</th>
+        </tr>
+      </thead>
+      <tbody id="keranjang-body">
+        <!-- Isi keranjang ditampilkan melalui JavaScript -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Script -->
+  <script>
+    function loadKeranjang() {
+      const username = localStorage.getItem("userLogin");
+      const tbody = document.getElementById("keranjang-body");
+
+      if (!username) {
+        tbody.innerHTML = `<tr><td colspan="3" style="text-align:center; padding:50px;">Silakan login terlebih dahulu</td></tr>`;
+        return;
+      }
+
+      const key = `keranjang_${username}`;
+      const keranjang = JSON.parse(localStorage.getItem(key)) || [];
+
+      tbody.innerHTML = "";
+
+      if (keranjang.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="3" style="text-align:center; padding:50px;">Keranjang kosong</td></tr>`;
+        return;
+      }
+
+      keranjang.forEach((item, index) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td data-label="Produk">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <img src="${item.gambar}" class="product-image" alt="${item.judul}">
+              <div><strong>${item.judul}</strong></div>
+            </div>
+          </td>
+          <td data-label="Harga">${item.harga}</td>
+          <td data-label="Aksi"><button class="hapus-btn" onclick="hapusItem(${index})">Hapus</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function hapusItem(index) {
+      const username = localStorage.getItem("userLogin");
+      const key = `keranjang_${username}`;
+      const keranjang = JSON.parse(localStorage.getItem(key)) || [];
+
+      keranjang.splice(index, 1);
+      localStorage.setItem(key, JSON.stringify(keranjang));
+      loadKeranjang();
+    }
+
+    window.onload = loadKeranjang;
+  </script>
+
+</body>
+</html>

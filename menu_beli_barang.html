@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beli Barang</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #0b713e;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+    }
+
+    .header a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .header span {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+
+    .header h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .content {
+      display: flex;
+      padding: 20px;
+      gap: 30px;
+    }
+
+    .left {
+      flex: 1;
+    }
+
+    .product-image {
+      background-color: #ddd;
+      height: 300px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    .info-footer {
+      background-color: #eee;
+      text-align: center;
+      padding: 20px;
+      font-weight: bold;
+    }
+
+    .right {
+      flex: 2;
+    }
+
+    .right h3 {
+      margin-top: 0;
+    }
+
+    .description-title {
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .description-box {
+      background-color: #ddd;
+      height: 200px;
+      width: 500px;
+      margin-top: 5px;
+      border-radius: 10px;
+      padding: 10px;
+      overflow-y: auto;
+    }
+
+    .price-title {
+      font-weight: bold;
+      color: #0b713e;
+      font-size: 25px;
+    }
+
+    .condition-title {
+      font-weight: bold;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .buttons button {
+      background-color: #0b713e;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .buttons button:hover {
+      background-color: #095e34;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <span><a href="home.html">&larr;</a></span>
+      <h2>Beli barang</h2>
+    </div>
+    <div class="content">
+      <div class="left">
+        <div class="product-image" id="gambar-produk"></div>
+        <div class="info-footer" id="info-produk"></div>
+      </div>
+      <div class="right">
+        <h3 id="judul-produk"></h3>
+        <p class="price-title" id="harga-produk"></p>
+        <p class="condition-title">Kondisi barang</p>
+        <p id="kondisi-produk"></p>
+        <div class="description-title">Deskripsi produk</div>
+        <div class="description-box" id="deskripsi-produk"></div>
+        <div class="buttons">
+          <button onclick="Keranjang()">Keranjang</button>
+          <button onclick="BeliBarang()">Beli Sekarang</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get("id"));
+    let produk = null;
+
+    fetch("barang.json")
+      .then(response => response.json())
+      .then(data => {
+        produk = data.find(item => item.id === id);
+        if (!produk) {
+          alert("Produk tidak ditemukan");
+          return;
+        }
+
+        document.getElementById("gambar-produk").innerHTML = `
+          <img src="${produk.gambar}" alt="${produk.judul}" style="width:100%; height:100%; object-fit:cover;">
+        `;
+        document.getElementById("info-produk").textContent = produk.judul;
+        document.getElementById("judul-produk").textContent = produk.judul;
+        document.getElementById("harga-produk").textContent = produk.harga;
+        document.getElementById("kondisi-produk").textContent = produk.kondisi;
+        document.getElementById("deskripsi-produk").textContent = produk.deskripsi;
+      })
+      .catch(err => {
+        console.error("Gagal mengambil data:", err);
+      });
+
+    function Keranjang() {
+      const userLogin = localStorage.getItem("userLogin");
+      if (!userLogin) {
+        alert("Silakan login terlebih dahulu untuk menambahkan ke keranjang.");
+        return;
+      }
+
+      const produkKeranjang = {
+        id: produk.id,
+        judul: produk.judul,
+        harga: produk.harga,
+        gambar: produk.gambar,
+      };
+
+      const keyKeranjang = `keranjang_${userLogin}`;
+      let keranjang = JSON.parse(localStorage.getItem(keyKeranjang)) || [];
+
+      keranjang.push(produkKeranjang);
+      localStorage.setItem(keyKeranjang, JSON.stringify(keranjang));
+
+      alert("Produk ditambahkan ke keranjang!");
+    }
+
+    function BeliBarang() {
+      const userLogin = localStorage.getItem("userLogin");
+      if (!userLogin) {
+        alert("Silahkan login terlebih dahulu untuk memesan produk ini.");
+        return;
+      }
+
+      const pesananBaru = {
+        id: produk.id,
+        judul: produk.judul,
+        harga: produk.harga,
+        gambar: produk.gambar,
+      }
+
+      const keyPesanan = `pesanan_${userLogin}`;
+      let pesanan = JSON.parse(localStorage.getItem(keyPesanan)) || [];
+
+      pesanan.push(pesananBaru);
+      localStorage.setItem(keyPesanan, JSON.stringify(pesanan));
+
+      alert("Barang berhasil dipesan");
+    }
+  </script>
+</body>
+</html>

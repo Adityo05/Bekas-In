@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Tentang Bekas-In</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #0B713F;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .logo-text .main-text {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .logo-text .sub-text {
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .search-form {
+      display: flex;
+      gap: 8px;
+      margin: 8px 0;
+    }
+
+    .search-form input[type="text"] {
+      padding: 8px;
+      border-radius: 6px;
+      border: none;
+      width: 220px;
+    }
+
+    .search-form button {
+      padding: 8px 12px;
+      border: none;
+      background-color: #07532f;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .icon-buttons {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .icon-buttons a img {
+      width: 28px;
+      height: 28px;
+      filter: brightness(0) invert(1);
+      transition: transform 0.2s;
+    }
+
+    .icon-buttons a:hover img {
+      transform: scale(1.1);
+    }
+
+    nav {
+      background-color: white;
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #2e2e2e;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    nav a:hover {
+      background-color: #d4d4d4;
+    }
+
+    .about-section {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 40px;
+      background-color: white;
+      max-width: 1100px;
+      margin: 30px auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .about-image {
+      flex: 1 1 300px;
+      padding: 10px;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .about-text {
+      flex: 2 1 400px;
+      padding: 20px;
+    }
+
+    .about-text h2 {
+      margin-top: 0;
+      color: #0a6c3d;
+      font-size: 28px;
+    }
+
+    .about-text h2 span {
+      color: #0a6c3d;
+      font-weight: bold;
+    }
+
+    .about-text p {
+      margin-bottom: 16px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .about-text strong {
+      color: #0a6c3d;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .search-form {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .icon-buttons {
+        align-self: flex-end;
+      }
+
+      .about-section {
+        flex-direction: column;
+        padding: 20px;
+        margin: 20px;
+      }
+
+      .about-image {
+        padding-bottom: 0;
+      }
+
+      .about-text h2 {
+        font-size: 22px;
+      }
+
+      .about-text p {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-text">
+      <div class="main-text">BEKAS-IN</div>
+      <div class="sub-text">Cari bekas rasa baru? <strong>BEKAS-IN</strong> aja!</div>
+    </div>
+
+    <form action="#" class="search-form">
+      <input type="text" placeholder="Cari barang bekas...">
+      <button type="submit">Cari</button>
+    </form>
+
+    <div class="icon-buttons">
+      <a href="keranjang.html"><img src="assets/keranjang.png" alt="Keranjang"></a>
+      <a href="akun.html"><img src="assets/akunn.png" alt="Akun"></a>
+    </div>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="home.html">Beranda</a>
+    <a href="pesanan.html">Pesanan</a>
+    <a href="jual.html">Jual Barang</a>
+    <a href="tentang_kami.html">Tentang Kami</a>
+    <a href="kontak.html">Kontak Kami</a>
+  </nav>
+
+  <!-- ABOUT SECTION -->
+  <section class="about-section">
+    <div class="about-image">
+      <img src="assets/tentangkami.png" alt="Tentang Kami">
+    </div>
+    <div class="about-text">
+      <h2>Tentang <span>BEKAS-IN</span></h2>
+      <p>Solusi cerdas untuk belanja barang bekas berkualitas.</p>
+      <p>Di Bekas-In, kami percaya bahwa setiap barang bekas masih punya nilai. Misi kami adalah menghadirkan platform yang memudahkan siapa saja untuk <strong>menjual dan membeli barang preloved berkualitas</strong> secara aman dan nyaman.</p>
+      <p>Pembeli bisa menemukan barang incaran dengan harga terjangkau, sementara penjual bisa mendapatkan penghasilan tambahan dari barang yang sudah tak terpakai. Dengan transaksi yang transparan dan tampilan produk yang informatif, BekasIn menciptakan ruang jual beli yang <strong>praktis dan terpercaya</strong>.</p>
+      <p>Dalam era digital ini, kami ingin membantu mengurangi limbah dan mendorong gaya hidup berkelanjutan. <strong>Karena barang bekas pun layak untuk kesempatan kedua.</strong></p>
+    </div>
+  </section>
+
+</body>
+</html>

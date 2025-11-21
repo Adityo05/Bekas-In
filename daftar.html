@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Daftar Akun</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0a6c3d;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+    }
+
+    .back-button::before {
+      content: "←";
+      font-size: 20px;
+      margin-right: 8px;
+    }
+
+    .form-container {
+      background-color: white;
+      padding: 40px 30px;
+      border-radius: 16px;
+      width: 350px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      font-size: 24px;
+      color: #000;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px 15px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 10px;
+      background-color: #0a6c3d;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 15px;
+      margin-top: 10px;
+    }
+
+    .btn-submit:hover {
+      background-color: #07532f;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tombol Kembali -->
+  <a href="login.html" class="back-button">KEMBALI</a>
+
+  <!-- Form Daftar -->
+  <div class="form-container">
+    <h2>Daftar</h2>
+    <form id="formDaftar" onsubmit="daftarAkun(event)">
+      <div class="form-group">
+        <input type="text" id="firstName" placeholder="Nama depan" required>
+      </div>
+      <div class="form-group">
+        <input type="text" id="lastName" placeholder="Nama belakang" required>
+      </div>
+      <div class="form-group">
+        <input type="text" id="username" placeholder="Username" required>
+      </div>
+      <div class="form-group">
+        <input type="email" id="email" placeholder="Email" required>
+      </div>
+      <div class="form-group">
+        <input type="password" id="password" placeholder="Password" required>
+      </div>
+      <button type="submit" class="btn-submit">Daftar</button>
+    </form>
+  </div>
+
+<script>
+  function daftarAkun(e) {
+    e.preventDefault();
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const username = document.getElementById("username").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const firstName = document.getElementById("firstName").value;
+    const lastName = document.getElementById("lastName").value;
+
+    const userBaru = { username, email, password, firstName, lastName };
+    users.push(userBaru);
+
+    // Simpan ke localStorage
+    localStorage.setItem("users", JSON.stringify(users));
+
+    // // Simpan ke file .json dengan memicu download
+    // const blob = new Blob([JSON.stringify(users, null, 2)], { type: "application/json" });
+    // const url = URL.createObjectURL(blob);
+    // const a = document.createElement("a");
+    // a.href = url;
+    // a.download = "akun.json";
+    // a.click();
+    // URL.revokeObjectURL(url); // bersihkan memory
+
+    alert("Akun berhasil dibuat.");
+    window.location.href = "login.html";
+  }
+</script>
+
+</body>
+</html>
